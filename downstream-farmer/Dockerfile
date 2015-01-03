@@ -12,6 +12,6 @@ RUN buildDeps='git build-essential python-pip'; \
 	&& apt-get purge -y --auto-remove $buildDeps
 
 # when running, assume working path for farmer has been mounted from the host system at this location
-WORKDIR=/downstream
+WORKDIR /downstream
 
 CMD ["downstream"]
