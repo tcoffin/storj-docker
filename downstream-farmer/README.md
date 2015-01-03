@@ -1,22 +1,21 @@
 Creates a Docker image for Downstream Farmer
 
 Build Image
----
+===
 ```
-git clone <repo>
-cd <repo>
+git clone https://github.com/tcoffin/storj-docker.git
+cd storj-docker/downstream-farmer
 docker build .
 ```
 
-Run Downstream Farmer
----
+Usage
+===
+In your Farmer directory, create file ```data/identities.json``` per the [instructions](https://github.com/Storj/downstream-farmer/wiki/Test-Group-A-FAQ).
 
-Create the following directory/file struture on the Docker Host:
+```docker run -d -v <your farmer directory>:/downstream <image name|id>```
 
-+ farmer
-  |
-  + data
-    |
-    + identities.json
+You can see that the container is running with:
+```docker ps```
 
-```docker run -d -v farmer:/downstream <image name|id>```
+To view the Farmer console output:
+```docker attach <container id|name>```
